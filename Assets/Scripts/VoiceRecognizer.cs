@@ -10,6 +10,9 @@ public class VoiceRecognizer : MonoBehaviour {
     public int mapScene = 0;
     public int floorScene = 1;
 
+    // For searching within Memories.
+    public GameObject search;
+
     KeywordRecognizer keywordRecognizer = null;
     Dictionary<string, System.Action> keywords = new Dictionary<string, System.Action>();
 
@@ -17,14 +20,8 @@ public class VoiceRecognizer : MonoBehaviour {
     void Start () {
         keywords.Add("Map", () =>
         {
-            //Load the selected scene, by scene index number in build settings
-            SceneManager.LoadScene(mapScene);
-        });
-
-        keywords.Add("Home", () =>
-        {
-            //Load the selected scene, by scene index number in build settings
-            SceneManager.LoadScene(floorScene);
+            GameObject memory = search.transform.Find("Map").gameObject;
+            memory.SetActive(true);
         });
 
         // Tell the KeywordRecognizer about our keywords.
