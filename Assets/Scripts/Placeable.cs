@@ -358,7 +358,7 @@ public class Placeable : MonoBehaviour
         // We are placing at a small buffer away from the surface.
         targetPosition = position + (0.01f * surfaceNormal);
 
-        OrientObject(true, surfaceNormal);
+        // OrientObject(true, surfaceNormal);
 
         // If we are managing the collider, disable it. 
         if (managingBoxCollider)
@@ -423,7 +423,7 @@ public class Placeable : MonoBehaviour
         // Orient the object.
         // We are using the return value from Physics.Raycast to instruct
         // the OrientObject function to align to the vertical surface if appropriate.
-        OrientObject(hit, surfaceNormal);
+        // OrientObject(hit, surfaceNormal);
     }
 
     /// <summary>
